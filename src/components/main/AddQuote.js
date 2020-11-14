@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { db } from "../../firebase";
+import firebase from 'firebase'
+import { auth } from "../../firebase";
+
 
 function AddQuote() {
   const [quote, setQuote] = useState("");
@@ -7,19 +10,29 @@ function AddQuote() {
 
   const ref = db.collection("quoteList");
 
+
   const onSubmit = (e) => {
     e.preventDefault();
-    ref
-      .add({
-        quote,
-        tags,
-      })
-      .then(() => {
-        console.log("note entered into db");
-        setQuote(" ");
-        setTags(" ");
-      })
-      .catch((err) => console.log("oops quote not entered", err));
+
+    auth.onAuthStateChanged((user) =>{
+      if(user) {
+        const { serverTimestamp } = firebase.firestore.FieldValue;
+        ref
+          .add({
+            uid: user.uid,
+            quote,
+            tags,
+            createdAt: serverTimestamp(),
+          })
+          .then(() => {
+            console.log("note entered into db");
+            setQuote(" ");
+            setTags(" ");
+          })
+          .catch((err) => console.log("oops quote not entered", err));
+      }
+    })
+    
   };
 
   return (

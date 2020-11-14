@@ -79,14 +79,31 @@
   padding: 0.4rem 0.5rem;
 }
 .signin-container .signinBtn {
- color: white;
- background: black;
- padding: 0 1rem;
- border-radius: 10px;
- font-size: 4rem;
- font-weight: 900;
- letter-spacing: 2px;
- cursor: pointer;
+  color: white;
+  background: black;
+  padding: 0 1rem;
+  border-radius: 10px;
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: 0.3s ease  all;
+}
+
+.signin-container .signinBtn:hover{
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+ 
+}
+.signin-container .signinBtn:hover:after {
+
+  
 }
 
 /* //main-container */
@@ -171,7 +188,7 @@
 
 /* //quoteList container */
 .quoteList-container {
-  background:  rgba(255, 255, 0, 0.918);
+  background: rgba(255, 255, 0, 0.918);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -186,6 +203,13 @@
   position: relative;
 }
 
+.quoteList .userName {
+  background: black;
+  padding: 1rem 4rem;
+  color: white;
+  width: fit-content;
+  border-radius: 10px;
+}
 .quoteList:first-child {
   margin-top: 1.7rem;
 }
