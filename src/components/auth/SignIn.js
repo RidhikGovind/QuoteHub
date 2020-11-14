@@ -23,7 +23,7 @@ function SignIn() {
   return (
     <div className="signin-container">
       <div onClick={signIn} className="signinBtn">
-        >
+        &gt;
       </div>
     </div>
   );
