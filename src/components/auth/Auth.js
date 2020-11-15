@@ -13,7 +13,7 @@ function Auth() {
   }, []);
   return (
     <div className="auth-container">
-      <div className="auth-title">QuotesHub</div>
+      <div className="auth-title">QuoteHub</div>
       <div className="click">
         <SignIn />
       </div>
